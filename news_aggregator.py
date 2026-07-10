@@ -2,6 +2,8 @@
 
 import datetime
 import html
+import os
+import subprocess
 import feedparser
 
 FEEDS = [
@@ -77,12 +79,26 @@ def render_html(feed_results):
 </html>"""
 
 
+def publish():
+    repo_dir = os.path.dirname(os.path.abspath(__file__))
+    run = lambda *args: subprocess.run(args, cwd=repo_dir, capture_output=True, text=True)
+    run("git", "add", "dashboard.html")
+    commit = run("git", "commit", "-m", f"Update dashboard {datetime.datetime.now():%Y-%m-%d %H:%M}")
+    if commit.returncode != 0 and "nothing to commit" not in commit.stdout:
+        print("git commit failed:", commit.stdout, commit.stderr)
+        return
+    push = run("git", "push")
+    if push.returncode != 0:
+        print("git push failed:", push.stdout, push.stderr)
+
+
 def main():
     results = [fetch_feed(name, url) for name, url in FEEDS]
     output = render_html(results)
     with open("dashboard.html", "w", encoding="utf-8") as f:
         f.write(output)
     print(f"dashboard.html generated with {len(results)} feeds.")
+    publish()
 
 
 if __name__ == "__main__":
