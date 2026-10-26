@@ -23,7 +23,8 @@ C:\Users\admin\Desktop\New Obsidian\New Trading Brain\Discussion and Insights\
    ```
 4. Log: `%LOCALAPPDATA%\TradingBrainSync\sync.log`.
 
-Synced originals are kept in `Trading Brain Inbox\_synced` on Drive as a backup.
+Drive is only a waiting room: each file is deleted from the inbox as soon as it is safely in the vault.
+When you are at the PC, save PDFs and other large files straight into the vault, not via Drive.
 
 ## Using /brain everywhere
 
