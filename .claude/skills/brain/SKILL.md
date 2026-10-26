@@ -51,7 +51,8 @@ Google Sheet **"Trading Brain Thesis Scorecard"**, ID `1wmIqDvaLSC78lIUS290qimsc
   the new evidence as Positive or Negative, and show the current tally and status *including*
   this input (e.g. `Commodity super-cycle: 2+ / 2- -> WATCH`).
 - **Warn loudly** at the top of the reply (`⚠ Thesis warning: ...`) if this input would push any
-  thesis to WATCH or WARN, or if one already is. Say which holdings ride on that thesis.
+  thesis to WATCH or WARN, or if a thesis it touches already is. Any thesis at WARN is always
+  mentioned, even if unrelated. Say which holdings ride on that thesis.
 - Thesis names must match the Summary column A exactly. If the input supports a new thesis,
   propose it to Chris instead of adding it silently.
 
