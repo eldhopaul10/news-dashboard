@@ -23,8 +23,8 @@ Reply in chat with exactly these three sections, in plain language:
    commodities. Separate first-order from second-order effects, and give a timeline / trigger
    to watch.
 3. **Effect on my portfolio** — go holding by holding (and watchlist / tracked theses) and say
-   positive / negative / neutral and why, biggest allocation first. Use the "Effect on my
-   portfolio" holdings source below; never guess holdings.
+   positive / negative / neutral and why, biggest allocation first. Use the "Holdings source"
+   section below; never guess holdings.
 
 ### Holdings source (combined family portfolio, live prices)
 
