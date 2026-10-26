@@ -1,27 +1,36 @@
 ---
 name: brain
-description: Capture a discussion, post, screenshot, report or chat insight into Chris's New Trading Brain vault. Use when Chris says "/brain", "save to brain", "brain this", "log this to my trading brain", or shares an input and asks to understand it and keep it for later. Explains the takeaway, applies the save filter, writes an Obsidian note to the Google Drive "Trading Brain Inbox", which a PC script syncs into the vault's "Discussion and Insights" folder whenever the PC is on.
+description: Discuss any input Chris shares (X post, screenshot, news, report, video, chat) in three parts — general takeaway, effect on the general market, effect on his portfolio — and save the discussion to his New Trading Brain vault only when he says "save". Use when Chris says "/brain", shares an input to understand for trading, or says "save" / "save to brain" after such a discussion. Saved notes go to the Google Drive "Trading Brain Inbox", which a PC script syncs into the vault's "Discussion and Insights" folder whenever the PC is on.
 ---
 
-# /brain — capture to New Trading Brain
+# /brain — discuss, then save to New Trading Brain on "save"
 
 Vault on Chris's PC: `C:\Users\admin\Desktop\New Obsidian\New Trading Brain`
 Target folder in vault: `Discussion and Insights`
 Cloud inbox (always reachable): Google Drive folder **`Trading Brain Inbox`** (My Drive root)
 
-The PC may be off. Never wait for it. Write to the Drive inbox; the PC's
-`Sync-TradingBrain.ps1` (scheduled at logon + every 30 min) moves notes into the vault.
+## Phase 1 — Discussion (always, nothing is saved)
 
-## Steps
+Reply in chat with exactly these three sections, in plain language:
 
-1. **Understand the input** (screenshot, X post, text, link, PDF, or the current chat discussion).
-   Explain the takeaway to Chris in chat in plain language first. Re-check any numbers in the
-   source and say if they don't hold up. Mark unverified claims ("reportedly", single source).
+1. **General takeaway** — what the input says and why it matters. Re-check any numbers in the
+   source and say if they don't hold up. Flag unverified claims ("reportedly", single source).
+2. **Effect on the general market** — Nifty/Sensex, sectors, FPI/DII flows, rupee, rates,
+   commodities. Separate first-order from second-order effects, and give a timeline / trigger
+   to watch.
+3. **Effect on my portfolio** — go holding by holding (and watchlist / tracked theses) and say
+   positive / negative / neutral and why. Get the holdings list from the Drive file
+   `Trading Brain Portfolio.md` (search by title). If it's missing or looks stale, say so and
+   ask Chris for his current holdings instead of guessing.
 
-2. **Filter** using the `trading-brain-save-filter` rules. An explicit "save" / "/brain" always
-   overrides the filter. If unsure, ask in one line: "Worth logging, or chat-only?"
+End the reply with one line: `Say "save" to add this to your Trading Brain.`
+Add your own view on whether it's worth saving (per `trading-brain-save-filter`), but do not save.
 
-3. **Write the note** (Markdown, Obsidian-friendly):
+Continue the discussion if Chris asks follow-ups; fold anything new into the final note.
+
+## Phase 2 — Save (only when Chris says "save", "save it", "save to brain")
+
+1. Build the note from the discussion (including follow-ups):
 
    ```markdown
    ---
@@ -29,29 +38,30 @@ The PC may be off. Never wait for it. Write to the Drive inbox; the PC's
    type: discussion-insight
    source: "<who / where>"
    tags: [<3-6 lowercase tags>]
-   thesis-link: "<tracked thesis it touches, or none>"
-   review-by: YYYY-MM-DD   # when this should be re-checked, if time-bound
+   holdings: [<affected tickers>]
+   review-by: YYYY-MM-DD   # only if time-bound
    ---
 
    # <Short descriptive title>
 
-   ## The input (summary)
-   ## Core takeaway (plain language)
-   ## Divergence to remember        # only if there is one
-   ## How to use this for trading decisions
-   ## Portfolio Alert
-   ## Open questions
+   ## Source summary
+   ## General takeaway
+   ## Effect on the general market
+   ## Effect on my portfolio
+   ## What to watch / Portfolio Alert
    ```
 
    Filename: `YYYY-MM-DD_Short-Topic-In-Title-Case.md` (no spaces, no `\ / : * ? " < > |`).
 
-4. **Save**:
+2. Save it:
    - Find the Drive folder: `title = 'Trading Brain Inbox' and mimeType = 'application/vnd.google-apps.folder'`.
      Create it in `root` if missing.
    - `create_file` with `parentId` = that folder, `contentMimeType: text/markdown`,
      `disableConversionToGoogleType: true`, `textContent` = the note.
-   - If this session can write the vault directly (Claude Code / Cowork on Chris's PC with the
-     path above present), write to `<vault>\Discussion and Insights\` instead and skip Drive.
+   - If this session can write the vault directly (Claude on Chris's PC with the vault path
+     present), write to `<vault>\Discussion and Insights\` instead and skip Drive.
+   - The PC may be off — never wait for it. `Sync-TradingBrain.ps1` (logon + every 30 min)
+     moves inbox notes into the vault.
 
-5. **Confirm in one line**:
-   `Saved → Discussion and Insights/<filename> (queued in Drive inbox; syncs when PC is on)`
+3. Confirm in one line:
+   `Saved → Discussion and Insights/<filename> (syncs to your PC when it's on)`

@@ -29,5 +29,5 @@ Synced originals are kept in `Trading Brain Inbox\_synced` on Drive as a backup.
 
 - **Claude Code in this repo:** `/brain` is available from `.claude/skills/brain/SKILL.md`.
 - **Claude app (phone / web):** zip the `.claude/skills/brain` folder and upload it in
-  claude.ai → Settings → Capabilities → Skills. Then say "brain this" or "/brain" with any input.
+  claude.ai → Settings → Capabilities → Skills. Share any input with "/brain" to get takeaway / market effect / portfolio effect, then say "save" to store it.
   Google Drive must be connected (it already is).
