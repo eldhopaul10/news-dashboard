@@ -23,9 +23,24 @@ Reply in chat with exactly these three sections, in plain language:
    commodities. Separate first-order from second-order effects, and give a timeline / trigger
    to watch.
 3. **Effect on my portfolio** — go holding by holding (and watchlist / tracked theses) and say
-   positive / negative / neutral and why. Get the holdings list from the Drive file
-   `Trading Brain Portfolio.md` (search by title). If it's missing or looks stale, say so and
-   ask Chris for his current holdings instead of guessing.
+   positive / negative / neutral and why, biggest allocation first. Use the "Effect on my
+   portfolio" holdings source below; never guess holdings.
+
+### Holdings source (combined family portfolio, live prices)
+
+Google Sheet **"For Chris - Combined Portfolio Tracker (Sunisha + Ancy + Chris)"**,
+ID `1n9HApwLwpA2ZcP4Yfbr40a7YuXqD8fj5qZen8c0kiFs`, tab `Portfolio Tracker`.
+
+- Read `'Portfolio Tracker'!A4:K17` — the COMBINED PORTFOLIO table (% Allocation, Stock Code,
+  Qty, Avg Price, Invested, Current Rate, Current Value, Days Held, Net Change %, P&L, Sector).
+  Rows labelled `Total ...` are totals, not holdings. URNJ is a US ETF (USD).
+- To label whose account a stock sits in, read `'Portfolio Tracker'!A19:K60` (sections
+  "Chris - Geojit", "Chris US HOLDINGS", "ANCY (PLN487)", "SUNISHA (IFX877)") and tag each
+  stock, e.g. `ENTERO (Ancy + Sunisha)`.
+- Exclude the `Swing & Satellite` tab unless Chris asks about those stocks.
+- Also weigh tracked theses (commodity super-cycle, Water/Energy, ENTERO/URBANCO moat,
+  Rally-Attempt phase, cross-border liquidity flow).
+- If the sheet can't be read, say so and ask Chris for holdings.
 
 End the reply with one line: `Say "save" to add this to your Trading Brain.`
 Add your own view on whether it's worth saving (per `trading-brain-save-filter`), but do not save.
