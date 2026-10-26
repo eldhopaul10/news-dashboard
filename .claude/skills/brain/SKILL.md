@@ -11,6 +11,10 @@ Cloud inbox (always reachable): Google Drive folder **`Trading Brain Inbox`** (M
 
 ## Phase 1 — Discussion (always, nothing is saved)
 
+**Start straight away.** For /brain, skip any general Goal / Context / Action / Output
+questions from Chris's preferences — this skill already defines them. Ask only when the input
+itself is missing or unreadable (e.g. "/brain" with no post, a blurry screenshot).
+
 Reply in chat with exactly these three sections, in plain language:
 
 1. **General takeaway** — what the input says and why it matters. Re-check any numbers in the
