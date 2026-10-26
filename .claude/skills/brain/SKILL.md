@@ -96,6 +96,11 @@ Continue the discussion if Chris asks follow-ups; fold anything new into the fin
 
    Filename: `YYYY-MM-DD_Short-Topic-In-Title-Case.md` (no spaces, no `\ / : * ? " < > |`).
 
+   **Source files (PDFs, reports, images) never go into the note's folder or the Drive inbox.**
+   Chris keeps them for later reading in `<vault>\assets\`. The note only links to them under
+   the frontmatter title: `Source: [[assets/<file name as Chris saved it>]]` — a plain link,
+   not an `![[embed]]`. If you don't know the file name, ask, or leave the link out.
+
 2. Save it:
    - Find the Drive folder: `title = 'Trading Brain Inbox' and mimeType = 'application/vnd.google-apps.folder'`.
      Create it in `root` if missing.
