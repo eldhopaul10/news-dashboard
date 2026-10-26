@@ -53,7 +53,16 @@ Google Sheet **"Trading Brain Thesis Scorecard"**, ID `1wmIqDvaLSC78lIUS290qimsc
 - **Warn loudly** at the top of the reply (`⚠ Thesis warning: ...`) if this input would push any
   thesis to WATCH or WARN, or if a thesis it touches already is. Any thesis at WARN is always
   mentioned, even if unrelated. Say which holdings ride on that thesis.
-- Thesis names must match the Summary column A exactly. If the input supports a new thesis,
+- **Per-stock check:** `Summary!A10:F19` tallies each holding (rows whose `Affects` column names
+  the ticker). Status: OK / `WATCH - repeated negatives` (2+ negatives, >= positives) /
+  `REVIEW - check thesis, consider cutting` (3+ negatives, more than positives, 90 days).
+  A single negative never triggers. If this input would push a holding to WATCH or REVIEW, say
+  so at the top (`⚠ Stock review: LATENTVIEW ...`), list its recent negatives, and ask Chris
+  whether the original buy thesis still holds — present "hold / trim / exit" as options with
+  reasons, never as an instruction. If a holding in the portfolio sheet has no row here,
+  suggest adding one.
+- Thesis names must match the Summary column A exactly. Evidence that hits one stock but no
+  tracked thesis uses the thesis `Stock-specific`. If the input supports a new thesis,
   propose it to Chris instead of adding it silently.
 
 End the reply with one line: `Say "save" to add this to your Trading Brain.`
@@ -99,9 +108,10 @@ Continue the discussion if Chris asks follow-ups; fold anything new into the fin
 
 3. Log the thesis evidence: `append_values` to `Evidence!A1` of the scorecard, one row per
    item — `[YYYY-MM-DD, <thesis exactly as in Summary>, "Positive"|"Negative", <evidence>,
-   <affected tickers>, <source>, <note filename without .md>]`. Write the signal as the word,
-   never `+`/`-` (Sheets parses those as formulas). Then re-read `Summary!A1:F6` and report any
-   thesis at WATCH/WARN.
+   <affected tickers, comma-separated, exact codes from the portfolio sheet>, <source>,
+   <note filename without .md>]`. Write the signal as the word,
+   never `+`/`-` (Sheets parses those as formulas). Then re-read `Summary!A1:F19` and report any
+   thesis at WATCH/WARN and any stock at WATCH/REVIEW.
 
 4. Confirm in one line:
    `Saved → Discussion and Insights/<filename> (syncs to your PC when it's on)`
