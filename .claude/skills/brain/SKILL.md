@@ -41,6 +41,9 @@ ID `1n9HApwLwpA2ZcP4Yfbr40a7YuXqD8fj5qZen8c0kiFs`, tab `Portfolio Tracker`.
 - Also weigh tracked theses (commodity super-cycle, Water/Energy, ENTERO/URBANCO moat,
   Rally-Attempt phase, cross-border liquidity flow).
 - If the sheet can't be read, say so and ask Chris for holdings.
+- **No one in the family uses MTF / margin.** All holdings are fully paid, so margin-call or
+  forced-selling risk never applies to them; leverage news matters only through market-wide
+  price pressure. Don't ask about margin.
 
 ### Thesis scorecard check (every discussion)
 
