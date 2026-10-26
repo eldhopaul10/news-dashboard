@@ -42,6 +42,19 @@ ID `1n9HApwLwpA2ZcP4Yfbr40a7YuXqD8fj5qZen8c0kiFs`, tab `Portfolio Tracker`.
   Rally-Attempt phase, cross-border liquidity flow).
 - If the sheet can't be read, say so and ask Chris for holdings.
 
+### Thesis scorecard check (every discussion)
+
+Google Sheet **"Trading Brain Thesis Scorecard"**, ID `1wmIqDvaLSC78lIUS290qimsc1szqVBZ46xJi07BYbt0`.
+- `Summary!A1:F6` — per thesis: Positives (90d), Negatives (90d), Net, All-time, Status
+  (OK / WATCH / WARN). `Evidence!A:G` — Date, Thesis, Signal, Evidence, Affects, Source, Vault note.
+- After section 3, add a short **Thesis check** block: for each thesis this input touches, list
+  the new evidence as Positive or Negative, and show the current tally and status *including*
+  this input (e.g. `Commodity super-cycle: 2+ / 2- -> WATCH`).
+- **Warn loudly** at the top of the reply (`⚠ Thesis warning: ...`) if this input would push any
+  thesis to WATCH or WARN, or if one already is. Say which holdings ride on that thesis.
+- Thesis names must match the Summary column A exactly. If the input supports a new thesis,
+  propose it to Chris instead of adding it silently.
+
 End the reply with one line: `Say "save" to add this to your Trading Brain.`
 Add your own view on whether it's worth saving (per `trading-brain-save-filter`), but do not save.
 
@@ -67,6 +80,7 @@ Continue the discussion if Chris asks follow-ups; fold anything new into the fin
    ## General takeaway
    ## Effect on the general market
    ## Effect on my portfolio
+   ## Thesis evidence (Positive / Negative)
    ## What to watch / Portfolio Alert
    ```
 
@@ -82,5 +96,11 @@ Continue the discussion if Chris asks follow-ups; fold anything new into the fin
    - The PC may be off — never wait for it. `Sync-TradingBrain.ps1` (logon + every 30 min)
      moves inbox notes into the vault.
 
-3. Confirm in one line:
+3. Log the thesis evidence: `append_values` to `Evidence!A1` of the scorecard, one row per
+   item — `[YYYY-MM-DD, <thesis exactly as in Summary>, "Positive"|"Negative", <evidence>,
+   <affected tickers>, <source>, <note filename without .md>]`. Write the signal as the word,
+   never `+`/`-` (Sheets parses those as formulas). Then re-read `Summary!A1:F6` and report any
+   thesis at WATCH/WARN.
+
+4. Confirm in one line:
    `Saved → Discussion and Insights/<filename> (syncs to your PC when it's on)`
