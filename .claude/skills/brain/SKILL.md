@@ -61,12 +61,30 @@ Google Sheet **"Trading Brain Thesis Scorecard"**, ID `1wmIqDvaLSC78lIUS290qimsc
   `REVIEW - check thesis, consider cutting` (3+ negatives, more than positives, 90 days).
   A single negative never triggers. If this input would push a holding to WATCH or REVIEW, say
   so at the top (`⚠ Stock review: LATENTVIEW ...`), list its recent negatives, and ask Chris
-  whether the original buy thesis still holds — present "hold / trim / exit" as options with
-  reasons, never as an instruction. If a holding in the portfolio sheet has no row here,
+  whether the original buy thesis still holds — run the **Fall check** below first, then
+  present "hold / trim / exit" as options with reasons, never as an instruction. If a holding in the portfolio sheet has no row here,
   suggest adding one.
 - Thesis names must match the Summary column A exactly. Evidence that hits one stock but no
   tracked thesis uses the thesis `Stock-specific`. If the input supports a new thesis,
   propose it to Chris instead of adding it silently.
+
+### Fall check — before any exit (Chris's rule: find the reason for the fall first)
+
+Run this whenever the input is about a market or stock fall, Chris asks about exiting or
+trimming, or a holding hits WATCH/REVIEW. Big players can use leverage unwinds and fear to
+shake out holders, so classify the fall before suggesting any exit:
+
+| Cause | Signs to look for | Default stance |
+|---|---|---|
+| **Forced / leverage selling** (MTF unwind, margin calls) | MTF book shrinking (NSE/BSE daily MTF data; last known peak ~₹1.6L cr Sep 2026, warning < ₹1.4L cr); smallcaps falling much faster than Nifty; lower circuits / heavy volume with no company news; stock is a known MTF-heavy name | Don't exit on fear. Hold if thesis intact; watchlist to add once the MTF book stops shrinking |
+| **Macro / flow** (FII selling, rupee, oil, rates) | Broad fall across quality names; FII daily selling (warning ₹5,000 cr+/day); USD/INR, Brent, yields moving | Check the thesis scorecard; exit only if the thesis this stock rides on is at WARN |
+| **Stock-specific** (earnings miss, guidance cut, governance, order loss, moat erosion) | Stock falls while its sector/index doesn't; negative company news | Real reason — re-check the buy thesis; hold / trim / exit decision |
+
+Say which bucket(s) apply, with the evidence, then give hold / trim / exit as options.
+Honest caveat to keep in view: a forced-selling cascade can still go deeper before it ends,
+and in a confirmed market correction (see `oneil-market-trend-check`) cutting exposure can be
+right even when the cause is technical — so "it's only MTF selling" is a reason not to panic,
+not a reason to ignore price.
 
 End the reply with one line: `Say "save" to add this to your Trading Brain.`
 Add your own view on whether it's worth saving (per `trading-brain-save-filter`), but do not save.
